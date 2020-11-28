@@ -1063,7 +1063,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 825770290}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.56, y: 2.1, z: -1.0212488}
+  m_LocalPosition: {x: -1.72, y: 2.1, z: -1.0212488}
   m_LocalScale: {x: 1, y: 0.68, z: 1}
   m_Children:
   - {fileID: 1749476269}
@@ -1098,6 +1098,7 @@ MonoBehaviour:
   controller: {fileID: 825770291}
   speed: 8
   sitDownUi: {fileID: 1837161412}
+  silla: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2790,7 +2791,7 @@ PrefabInstance:
     - target: {fileID: 6309050880511890090, guid: d8a4d5b549764014eb8e850cc6c4000a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6309050880511890090, guid: d8a4d5b549764014eb8e850cc6c4000a,
         type: 3}

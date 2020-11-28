@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     //SIT DOWN
     public GameObject sitDownUi;
 
+    public GameObject silla;
+
     void Update()
     {
         float x = Input.GetAxis("Horizontal");
@@ -27,6 +29,15 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("silla"))
         {
             sitDownUi.SetActive(true);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (Input.GetKey(KeyCode.E))
+        {
+            Debug.Log("nice");
+            this.transform.parent = other.transform;
         }
     }
 
