@@ -8,6 +8,9 @@ public class PlayerMovement : MonoBehaviour
 
     public float speed = 8f;
 
+    //SIT DOWN
+    public GameObject sitDownUi;
+
     void Update()
     {
         float x = Input.GetAxis("Horizontal");
@@ -23,7 +26,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.CompareTag("silla")) ;
         {
-
+            sitDownUi.SetActive(true);
         }
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        sitDownUi.SetActive(false);
     }
 }
