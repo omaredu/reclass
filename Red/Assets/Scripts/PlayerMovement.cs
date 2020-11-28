@@ -24,13 +24,13 @@ public class PlayerMovement : MonoBehaviour
     // silla collider
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("silla")) ;
+        if (other.CompareTag("silla"))
         {
             sitDownUi.SetActive(true);
         }
     }
 
-    private void OnCollisionExit(Collision other)
+    private void OnTriggerExit(Collider other)
     {
         sitDownUi.SetActive(false);
     }
