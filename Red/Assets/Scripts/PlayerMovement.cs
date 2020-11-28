@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
 
     public bool sitDown = false;
 
+    public MenuController menuController;
+
     //SIT DOWN
     public GameObject sitDownUi, modeloUi;
 
@@ -46,27 +48,46 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKey(KeyCode.E))
+
+        if (other.CompareTag("silla"))
         {
-            Debug.Log("nice");
-            this.transform.parent = other.transform;
-            this.transform.position = new Vector3(2.2f, 1.79f, -3.37f);
-            walk = false;
-            sitDown = true;
-            StartCoroutine(sitDownSeconds());
+            if (Input.GetKey(KeyCode.E))
+            {
+                Debug.Log("nice");
+                this.transform.parent = other.transform;
+                this.transform.position = new Vector3(2.2f, 1.79f, -3.37f);
+                walk = false;
+                sitDown = true;
+                StartCoroutine(sitDownSeconds());
+            }
+            if (Input.GetKey(KeyCode.Q) && sitDown == true)
+            {
+                Debug.Log("out");
+                this.transform.position = new Vector3(0.58f, 2.81f, -3.07f);
+                walk = true;
+                sitDown = false;
+            }
         }
-        if (Input.GetKey(KeyCode.Q) && sitDown == true)
+        else if (other.CompareTag("modelo"))
         {
-            Debug.Log("out");
-            this.transform.position = new Vector3(0.58f, 2.81f, -3.07f);
-            walk = true;
-            sitDown = false;
+            if (Input.GetKey(KeyCode.E))
+            {
+                Debug.Log("okay");
+                menuController.Separation();
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        sitDownUi.SetActive(false);
+        if (other.CompareTag("silla"))
+        {
+            sitDownUi.SetActive(false);
+        }
+        else if (other.CompareTag("modelo"))
+        {
+            modeloUi.SetActive(false);
+        }
     }
 
     private IEnumerator sitDownSeconds()
