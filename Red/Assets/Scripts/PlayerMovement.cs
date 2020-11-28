@@ -9,7 +9,6 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 8f;
 
 
-   // public MenuController menuController;
 
     // menuModel
     public GameObject menuModelButtons;
@@ -26,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (walk == true)
+        if (walk == true && menuButtonActive == false)
         {
             float x = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");
@@ -76,7 +75,6 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E))
             {
-                //menuController.Separation();
                 menuModelButtons.SetActive(true);
                 menuButtonActive = true;
                 if(menuButtonActive == true)
