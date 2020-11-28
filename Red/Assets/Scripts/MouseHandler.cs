@@ -4,28 +4,26 @@ using UnityEngine;
 
 public class MouseHandler : MonoBehaviour
 {
-    // horizontal rotation speed
-    public float horizontalSpeed = 1f;
-    // vertical rotation speed
-    public float verticalSpeed = 1f;
-    private float xRotation = 0.0f;
-    private float yRotation = 0.0f;
-    private Camera cam;
+    public float mouseSensitivity = 100f;
+
+    public Transform playerBody;
+
+    float xRotation = 0f;
 
     void Start()
     {
-        cam = Camera.main;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * horizontalSpeed;
-        float mouseY = Input.GetAxis("Mouse Y") * verticalSpeed;
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        yRotation += mouseX;
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90, 90);
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        cam.transform.eulerAngles = new Vector3(xRotation, yRotation, 0.0f);
+        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        playerBody.Rotate(Vector3.up * mouseX);
     }
 }
