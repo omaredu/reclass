@@ -9,4 +9,9 @@ public class MenuController : MonoBehaviour
     {
         modeloAnim.SetTrigger("separate");
     }
+
+    public void ExitMode()
+    {
+
+    }
 }

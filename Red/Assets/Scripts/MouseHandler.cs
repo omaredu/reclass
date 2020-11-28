@@ -10,6 +10,9 @@ public class MouseHandler : MonoBehaviour
 
     float xRotation = 0f;
 
+    //menuButton
+    public PlayerMovement player;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -25,5 +28,14 @@ public class MouseHandler : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
+
+        if(player.menuButtonActive == true)
+        {
+            mouseSensitivity = 0;
+        }
+        else
+        {
+            mouseSensitivity = 200f;
+        }
     }
 }

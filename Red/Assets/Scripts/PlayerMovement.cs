@@ -8,16 +8,20 @@ public class PlayerMovement : MonoBehaviour
 
     public float speed = 8f;
 
-    public bool walk = true;
 
-    public bool once = false;
+   // public MenuController menuController;
 
-    public bool sitDown = false;
-
-    public MenuController menuController;
+    // menuModel
+    public GameObject menuModelButtons;
+    public bool menuButtonActive = false;
 
     //SIT DOWN
     public GameObject sitDownUi, modeloUi;
+
+    public bool walk = true;
+    public bool once = false;
+    public bool sitDown = false;
+
 
 
     void Update()
@@ -72,8 +76,14 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E))
             {
-                Debug.Log("okay");
-                menuController.Separation();
+                //menuController.Separation();
+                menuModelButtons.SetActive(true);
+                menuButtonActive = true;
+                if(menuButtonActive == true)
+                {
+                    modeloUi.SetActive(false);
+                    Cursor.lockState = CursorLockMode.None;
+                }
             }
         }
     }
