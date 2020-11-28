@@ -21,11 +21,15 @@ public class PlayerMovement : MonoBehaviour
     public bool once = false;
     public bool sitDown = false;
 
+    //pausemenu
+    public GameObject pauseMenu;
+    public bool isPaused = false;
+
 
 
     void Update()
     {
-        if (walk == true && menuButtonActive == false)
+        if (walk == true && menuButtonActive == false && isPaused == false)
         {
             float x = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");
@@ -33,6 +37,13 @@ public class PlayerMovement : MonoBehaviour
             Vector3 move = transform.right * x + transform.forward * z;
 
             controller.Move(move * speed * Time.deltaTime);
+        }
+
+        if(Input.GetKey(KeyCode.Escape) || Input.GetKey(KeyCode.P))
+        {
+            pauseMenu.SetActive(true);
+            isPaused = true;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 

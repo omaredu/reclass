@@ -23,4 +23,17 @@ public class MenuController : MonoBehaviour
         player.menuButtonActive = false;
         player.menuModelButtons.SetActive(false);
     }
+
+    public void ExitAplication()
+    {
+        Application.Quit();
+    }
+
+    public void resumeApplication()
+    {
+        mouse.mouseSensitivity = 200f;
+        player.pauseMenu.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        player.isPaused = false;
+    }
 }
