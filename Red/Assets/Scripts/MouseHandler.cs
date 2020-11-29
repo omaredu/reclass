@@ -37,16 +37,5 @@ public class MouseHandler : MonoBehaviour
         {
             mouseSensitivity = 200f;
         }
-
-        /*
-        if(player.isPaused == true)
-        {
-            mouseSensitivity = 0;
-        }
-        else
-        {
-            mouseSensitivity = 200f;
-        }
-        */
     }
 }
