@@ -6,7 +6,7 @@ public class motherBoardMouse : MonoBehaviour
 {
     public bool motherBoardMosueOver = false;
 
-    private void OnMouseOver()
+    private void OnMouseEnter()
     {
         motherBoardMosueOver = true;
     }
