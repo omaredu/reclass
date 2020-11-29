@@ -11,9 +11,14 @@ public class MenuController : MonoBehaviour
     public PlayerMovement player;
 
 
+    //descripcion
+    public GameObject description;
+
+
     public void Separation()
     {
         modeloAnim.SetTrigger("separate");
+        description.SetActive(true);
     }
 
     public void ExitMode()
@@ -22,5 +27,18 @@ public class MenuController : MonoBehaviour
         mouse.mouseSensitivity = 200f;
         player.menuButtonActive = false;
         player.menuModelButtons.SetActive(false);
+    }
+
+    public void ExitAplication()
+    {
+        Application.Quit();
+    }
+
+    public void resumeApplication()
+    {
+        mouse.mouseSensitivity = 200f;
+        player.pauseMenu.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        player.isPaused = false;
     }
 }
