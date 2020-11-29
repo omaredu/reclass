@@ -29,7 +29,7 @@ public class MouseHandler : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
 
-        if(player.menuButtonActive == true || player.isPaused == true)
+        if(player.menuButtonActive == true || player.isPaused == true || player.chooseMenuActive == true || player.skeletonMenuActive == true)
         {
             mouseSensitivity = 0;
         }

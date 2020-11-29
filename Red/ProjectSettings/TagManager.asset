@@ -6,6 +6,8 @@ TagManager:
   tags:
   - silla
   - modelo
+  - pizarron
+  - skeleton
   layers:
   - Default
   - TransparentFX

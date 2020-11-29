@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public bool menuButtonActive = false;
 
     //SIT DOWN
-    public GameObject sitDownUi, modeloUi;
+    public GameObject sitDownUi, modeloUi; //modeloUi → interactuar
 
     public bool walk = true;
     public bool once = false;
@@ -25,11 +25,19 @@ public class PlayerMovement : MonoBehaviour
     public GameObject pauseMenu;
     public bool isPaused = false;
 
+    //choseModelMenu
+    public GameObject chooseMenu;
+    public bool chooseMenuActive = false;
+
+    //skeletonMenu
+    public GameObject skeletonMenuButtons;
+    public bool skeletonMenuActive = false;
+
 
 
     void Update()
     {
-        if (walk == true && menuButtonActive == false && isPaused == false)
+        if (walk == true && menuButtonActive == false && isPaused == false && chooseMenuActive == false && skeletonMenuActive == false)
         {
             float x = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");
@@ -56,6 +64,14 @@ public class PlayerMovement : MonoBehaviour
             sitDownUi.SetActive(true);
         }
         else if (other.CompareTag("modelo"))
+        {
+            modeloUi.SetActive(true);
+        }
+        else if (other.CompareTag("pizarron"))
+        {
+            modeloUi.SetActive(true);
+        }
+        else if (other.CompareTag("skeleton"))
         {
             modeloUi.SetActive(true);
         }
@@ -97,6 +113,33 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
+        else if (other.CompareTag("pizarron"))
+        {
+            if (Input.GetKey(KeyCode.E))
+            {
+                chooseMenu.SetActive(true);
+                chooseMenuActive = true;
+                if (chooseMenuActive == true)
+                {
+                    modeloUi.SetActive(false);
+                    Cursor.lockState = CursorLockMode.None;
+                }
+            }
+        }
+        else if (other.CompareTag("skeleton"))
+        {
+
+            if (Input.GetKey(KeyCode.E))
+            {
+                skeletonMenuButtons.SetActive(true);
+                skeletonMenuActive = true;
+                if (skeletonMenuActive == true)
+                {
+                    modeloUi.SetActive(false);
+                    Cursor.lockState = CursorLockMode.None;
+                }
+            }
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -106,6 +149,14 @@ public class PlayerMovement : MonoBehaviour
             sitDownUi.SetActive(false);
         }
         else if (other.CompareTag("modelo"))
+        {
+            modeloUi.SetActive(false);
+        }
+        else if (other.CompareTag("pizarron"))
+        {
+            modeloUi.SetActive(false);
+        }
+        else if (other.CompareTag("skeleton"))
         {
             modeloUi.SetActive(false);
         }

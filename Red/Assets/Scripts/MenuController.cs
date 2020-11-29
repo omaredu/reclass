@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MenuController : MonoBehaviour
 {
-    public Animator modeloAnim;
+    public Animator modeloAnim, skeletonAnim;
 
     //menuButtons
     public MouseHandler mouse;
@@ -15,11 +15,36 @@ public class MenuController : MonoBehaviour
     public GameObject description;
     public menuDescription menuDescription;
 
+    //chosemenu
+    public bool computerOn = true;
+    public bool skeletonOn = false;
+    public GameObject computer, skeleton;
+
+    
+
 
     public void Separation()
     {
         modeloAnim.SetTrigger("separate");
         description.SetActive(true);
+    }
+
+    public void SeparationSkeleton()
+    {
+        skeletonAnim.SetTrigger("separate");
+    }
+
+    public void ExitSkeletonMode()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        mouse.mouseSensitivity = 200f;
+
+        player.skeletonMenuActive = false;
+        player.skeletonMenuButtons.SetActive(false);
+        player.modeloUi.SetActive(true);
+
+        skeletonAnim.SetTrigger("backToIddle");
+        skeletonAnim.SetTrigger("iddle");
     }
 
     public void ExitMode()
@@ -51,5 +76,42 @@ public class MenuController : MonoBehaviour
         player.pauseMenu.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         player.isPaused = false;
+    }
+
+    public void ExitChooseMode()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        mouse.mouseSensitivity = 200f;
+
+        player.chooseMenu.SetActive(false);
+        player.modeloUi.SetActive(true);
+        player.chooseMenuActive = false;
+
+    }
+
+    public void CreateComputer()
+    {
+        if(computerOn == false)
+        {
+            if(skeletonOn == true)
+            {
+                skeleton.SetActive(false);
+            }
+            computerOn = true;
+            computer.SetActive(true);
+            
+            skeletonOn = false;
+        }
+    }
+
+    public void CreateSkeleton()
+    {
+        if(computerOn == true)
+        {
+            computer.SetActive(false);
+            skeleton.SetActive(true);
+            computerOn = false;
+            skeletonOn = true;
+        }
     }
 }
