@@ -13,6 +13,7 @@ public class MenuController : MonoBehaviour
 
     //descripcion
     public GameObject description;
+    public menuDescription menuDescription;
 
 
     public void Separation()
@@ -25,10 +26,18 @@ public class MenuController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         mouse.mouseSensitivity = 200f;
+
         player.menuButtonActive = false;
         player.menuModelButtons.SetActive(false);
+        player.modeloUi.SetActive(true);
+
         description.SetActive(false);
+
         modeloAnim.SetTrigger("backToIddle");
+        modeloAnim.SetTrigger("iddle");
+
+        menuDescription.text.SetActive(true);
+        
     }
 
     public void ExitAplication()

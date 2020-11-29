@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    
     // silla collider
     private void OnTriggerEnter(Collider other)
     {
@@ -59,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
             modeloUi.SetActive(true);
         }
     }
-
+    
     private void OnTriggerStay(Collider other)
     {
 
@@ -84,6 +85,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (other.CompareTag("modelo"))
         {
+            
             if (Input.GetKey(KeyCode.E))
             {
                 menuModelButtons.SetActive(true);

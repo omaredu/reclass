@@ -13,16 +13,10 @@ public class menuDescription : MonoBehaviour
     public ramMouse ramMouse;
     public ssdMouseOver ssdMouse;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(destroyText());
+        StartCoroutine(deactivateText());
 
         if(cpuMouse.cpuMouseOver == true)
         {
@@ -46,7 +40,7 @@ public class menuDescription : MonoBehaviour
 
         if (motherBoardMouse.motherBoardMosueOver == true)
         {
-            Debug.Log("motherboard");
+            Debug.Log("madre");
             motherBoard.SetActive(true);
         }
         else
@@ -56,7 +50,7 @@ public class menuDescription : MonoBehaviour
 
         if (powerSupplyMouse.powerSupplyMouseOver == true)
         {
-            Debug.Log("supply");
+            Debug.Log("power");
             powerSupply.SetActive(true);
         }
         else
@@ -85,9 +79,9 @@ public class menuDescription : MonoBehaviour
         }
     }
 
-    IEnumerator destroyText()
+    IEnumerator deactivateText()
     {
-        yield return new WaitForSeconds(2f);
-        Destroy(text);
+        yield return new WaitForSeconds(1.5f);
+        text.SetActive(false);
     }
 }
