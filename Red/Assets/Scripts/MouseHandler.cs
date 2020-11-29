@@ -29,7 +29,7 @@ public class MouseHandler : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
 
-        if(player.menuButtonActive == true)
+        if(player.menuButtonActive == true || player.isPaused == true)
         {
             mouseSensitivity = 0;
         }
@@ -38,7 +38,7 @@ public class MouseHandler : MonoBehaviour
             mouseSensitivity = 200f;
         }
 
-
+        /*
         if(player.isPaused == true)
         {
             mouseSensitivity = 0;
@@ -47,5 +47,6 @@ public class MouseHandler : MonoBehaviour
         {
             mouseSensitivity = 200f;
         }
+        */
     }
 }
