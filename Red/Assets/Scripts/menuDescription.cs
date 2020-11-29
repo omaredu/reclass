@@ -47,11 +47,11 @@ public class menuDescription : MonoBehaviour
         if (motherBoardMouse.motherBoardMosueOver == true)
         {
             Debug.Log("motherboard");
-            motherBoard.SetActive(false);
+            motherBoard.SetActive(true);
         }
         else
         {
-            cpu.SetActive(false);
+            motherBoard.SetActive(false);
         }
 
         if (powerSupplyMouse.powerSupplyMouseOver == true)
