@@ -24,31 +24,37 @@ public class menuDescription : MonoBehaviour
     {
         if(cpuMouse.cpuMouseOver == true)
         {
+            Debug.Log("cpu");
             cpu.SetActive(true);
         }
 
         if (gpuMouse.gpuMouseOver == true)
         {
+            Debug.Log("gpu");
             gpu.SetActive(true);
         }
 
         if (motherBoardMouse.motherBoardMosueOver == true)
         {
+            Debug.Log("motherboard");
             motherBoard.SetActive(true);
         }
 
         if (powerSupplyMouse.powerSupplyMouseOver == true)
         {
+            Debug.Log("supply");
             powerSupply.SetActive(true);
         }
 
         if (ramMouse.rammouseOver == true)
         {
+            Debug.Log("ram");
             Ram.SetActive(true);
         }
 
         if (ssdMouse.ssdMouse == true)
         {
+            Debug.Log("ssd");
             ssd.SetActive(true);
         }
     }
