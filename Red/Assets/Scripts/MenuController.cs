@@ -11,9 +11,14 @@ public class MenuController : MonoBehaviour
     public PlayerMovement player;
 
 
+    //descripcion
+    public GameObject description;
+
+
     public void Separation()
     {
         modeloAnim.SetTrigger("separate");
+        description.SetActive(true);
     }
 
     public void ExitMode()
