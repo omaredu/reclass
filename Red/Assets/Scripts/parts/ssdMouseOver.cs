@@ -6,7 +6,7 @@ public class ssdMouseOver : MonoBehaviour
 {
     public bool ssdMouse = false;
 
-    private void OnMouseOver()
+    private void OnMouseEnter()
     {
         ssdMouse = true;
     }

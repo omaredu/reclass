@@ -6,7 +6,7 @@ public class cpuMouse : MonoBehaviour
 {
     public bool cpuMouseOver = false;
 
-    private void OnMouseOver()
+    private void OnMouseEnter()
     {
         cpuMouseOver = true;
     }

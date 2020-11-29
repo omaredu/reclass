@@ -6,7 +6,7 @@ public class powerSupplyMouse : MonoBehaviour
 {
     public bool powerSupplyMouseOver = false;
 
-    private void OnMouseOver()
+    private void OnMouseEnter()
     {
         powerSupplyMouseOver = true;
     }

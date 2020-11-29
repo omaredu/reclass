@@ -6,7 +6,7 @@ public class gpuMouse : MonoBehaviour
 {
     public bool gpuMouseOver = false;
 
-    private void OnMouseOver()
+    private void OnMouseEnter()
     {
         gpuMouseOver = true;
     }

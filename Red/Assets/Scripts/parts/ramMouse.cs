@@ -6,7 +6,7 @@ public class ramMouse : MonoBehaviour
 {
     public bool rammouseOver = false;
 
-    private void OnMouseOver()
+    private void OnMouseEnter()
     {
         rammouseOver = true;
     }

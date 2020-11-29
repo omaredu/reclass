@@ -27,6 +27,8 @@ public class MenuController : MonoBehaviour
         mouse.mouseSensitivity = 200f;
         player.menuButtonActive = false;
         player.menuModelButtons.SetActive(false);
+        description.SetActive(false);
+        modeloAnim.SetTrigger("backToIddle");
     }
 
     public void ExitAplication()
