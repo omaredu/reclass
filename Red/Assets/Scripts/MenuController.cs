@@ -28,6 +28,7 @@ public class MenuController : MonoBehaviour
         player.menuButtonActive = false;
         player.menuModelButtons.SetActive(false);
         description.SetActive(false);
+        modeloAnim.SetTrigger("backToIddle");
     }
 
     public void ExitAplication()
